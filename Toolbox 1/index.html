@@ -1,36 +1,56 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
 <head>
-    <title>SVG</title>
-    <style type="text/css">
-        body {
-            margin: 0;
-            padding: 0;
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SVG Primitives Example</title>
+    <style>
+        /* Style for the container */
+        #svgContainer {
+            width: 500px;
+            /* Adjust the width as needed */
+            height: 500px;
+            /* Adjust the height as needed */
+            margin: auto;
+            border: 1px solid black;
+            display: flex;
+            justify-content: center;
+            align-items: center;
         }
     </style>
 </head>
+
 <body>
-    <svg id="theSVG"></svg>
+
+    <div id="svgContainer">
+        <svg id="svgCanvas"></svg>
+    </div>
+
+    <script src="svgPrimitives.js"></script>
     <script>
 
-        const rect = (x, y, width, height, stroke, fill) => {
-            return `<rect x="${x}" y="${y}" width="${width}" 
-                          height="${height}" stroke="${stroke}" fill="${fill}" />`
-        }
-
-        const makeMySvg = () => {
+        const makeSVG = () => {
             return `
-                <svg width="100%" height="100%" viewBox="0 0 100 100">
-                    <g id="layer_1" transform="rotate(-5, 10, 10)">
-                        ${rect(10, 10, 40, 40, 'steelblue', 'none')}
-                    </g>
-                </svg
-            `;
+        <svg width="100%" height="100%" viewBox="0 0 500 500">
+                <g id="layer_1">
+                    ${createRect(6, 160, 120, 120, '#cb3237', 'none', 1, 5)}
+                    ${createRect(50, 20, 120, 120, '#6b2933', 'none', 1, -25)}
+                    ${createRect(210, 235, 120, 120, '#6b2933', 'none', 1, -30)}
+                    ${createRect(270, 210, 120, 120, '#6b2933', 'none', 1, 8)}
+                </g>
+                <g id="layer_2"> 
+                    ${createRect(138, 10, 120, 120, '#bf302c', 'none', 0.9, -5)}
+                    ${createRect(45, 90, 120, 120, '#e84139', 'none', 1, -45)}
+                    ${createRect(210, 112, 120, 120, '#e84139', 'none', 1, -12)}
+                    ${createRect(270, 330, 120, 120, '#cb3237', 'none', 1, 45)}
+                    ${createRect(340, 345, 120, 120, '#e52524', 'none', 1, 18)}
+                </g>
+            </svg>`;
         }
 
-        const theSvg = makeMySvg();
-        document.querySelector('svg').outerHTML = theSvg;
-
+        document.getElementById('svgContainer').innerHTML = makeSVG();
     </script>
 </body>
+
 </html>
