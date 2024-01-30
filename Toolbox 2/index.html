@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SVG Primitives Example</title>
+    <style>
+        /* Style for the container */
+        #svgContainer {
+            width: 500px;
+            /* Adjust the width as needed */
+            height: 500px;
+            /* Adjust the height as needed */
+            margin: auto;
+            border: 1px solid black;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div id="svgContainer">
+        <svg id="svgCanvas"></svg>
+    </div>
+    <button id="test">Click to download SVG</button>
+
+    <script src="svgPrimitives.js"></script>
+    <script>
+        const makeSVG = () => {
+            return `
+            <svg width="100%" height="100%" viewBox="0 0 500 500">
+                ${t(50,50,)}
+            </svg>`;
+        }
+        document.getElementById('svgContainer').innerHTML = makeSVG();
+
+        const downloadSVG = () => {
+            let svgToSave = makeSVG();
+            const blob = new Blob([svgToSave.toString()]);
+            const element = document.createElement("a");
+            element.download = "French.svg";
+            element.href = window.URL.createObjectURL(blob);
+            element.click();
+            element.remove();
+        }
+
+        document.getElementById('test').addEventListener('click', downloadSVG);
+    </script>
+</body>
+
+</html>
