@@ -51,7 +51,7 @@ const createRecursion = (x, y, size, depth, r) => {
     const squareGroup = [];
 
     const points = `${x},${y} ${x + size + rand(r)},${y + rand(r)} ${x + size + rand(r)},${y + size + rand(r)} ${x + rand(r)},${y + size + rand(r)} ${x},${y}`
-    const square = alter(polyLine(points));
+    const square = alter(polyLine(points), { scale: rand(r)});
 
     squareGroup.push(square);
 
@@ -67,10 +67,10 @@ const createGrid = () => {
 
     for (let i = 0; i < gridSize; i++) {
         for (let j = 0; j < gridSize; j++) {
-            const sideLength = Math.random() * (40 - 30) + 30;
+            const sideLength = Math.random() * (40 - 30) + 60;
             const x = i * 50 + (rand(1));
             const y = j * 50 + (rand(1));
-            const depth = Math.floor(Math.random() * 6) + 4;
+            const depth = Math.floor(Math.random() * 6) + 6;
 
 
             const squares = createRecursion(x, y, sideLength, depth, 2);
