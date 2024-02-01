@@ -33,7 +33,7 @@
         const makeSVG = () => {
             return `
             <svg width="100%" height="100%" viewBox="0 0 500 500">
-                ${createGrid()}
+                ${createGrid(10)}
             </svg>`;
         }
         document.getElementById('svgContainer').innerHTML = makeSVG();
@@ -42,7 +42,7 @@
             let svgToSave = makeSVG();
             const blob = new Blob([svgToSave.toString()]);
             const element = document.createElement("a");
-            element.download = "Des Odres.svg";
+            element.download = "Schotter.svg";
             element.href = window.URL.createObjectURL(blob);
             element.click();
             element.remove();
