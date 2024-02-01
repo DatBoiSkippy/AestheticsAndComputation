@@ -55,10 +55,9 @@ const createRecursion = (x, y, size, depth, r) => {
 
     squareGroup.push(square);
 
-    const smallerSquares = createRecursion(x + size / 8, y + size / 8, size / 1.4, depth - 1, r);
+    const smallerSquares = createRecursion(x + size / 8, y + size / 8, size / 1.3, depth - 1, r);
 
     squareGroup.push(...smallerSquares);
-
     return squareGroup;
 }
 
@@ -68,13 +67,13 @@ const createGrid = () => {
 
     for (let i = 0; i < gridSize; i++) {
         for (let j = 0; j < gridSize; j++) {
-            const sideLength = Math.random() * (50 - 40) + 40;
+            const sideLength = Math.random() * (40 - 30) + 30;
             const x = i * 50 + (rand(1));
             const y = j * 50 + (rand(1));
-            const depth = Math.floor(Math.random() * 7) + 4;
+            const depth = Math.floor(Math.random() * 6) + 4;
 
 
-            const squares = createRecursion(x, y, sideLength, depth, 1);
+            const squares = createRecursion(x, y, sideLength, depth, 2);
 
             grid.push(...squares);
         }
