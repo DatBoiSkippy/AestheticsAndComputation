@@ -100,7 +100,8 @@ const createRecursion = (x, y, size, depth, r) => {
     return squareGroup;
 }
 
-//Generates Noise, uses code from https://www.vincentbruijn.nl/articles/perlin-noise-js/ and https://joeiddon.github.io/projects/javascript/perlin.html
+//Generates Noise, used code from https://www.vincentbruijn.nl/articles/perlin-noise-js/ 
+//and https://joeiddon.github.io/projects/javascript/perlin.html as references
 const generatePerlinNoise = (x, y) => {
     const unitSize = 64;
     const X = Math.floor(x / unitSize) & 255;
